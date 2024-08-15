@@ -5,8 +5,10 @@
     border: border-box;
     /* border box is important */
 }
-.main{
+body{
     background-color: black;
+}
+.main{
     min-height: 100vh; 
     justify-content: center;
     align-items: center;
@@ -123,4 +125,12 @@ li{
 
 .hide{
     display: none;
+}
+
+@media (max-width:500px){
+    .main{
+        margin-right: auto;
+        margin-left: auto;
+        width: 80%;
+}
 }
