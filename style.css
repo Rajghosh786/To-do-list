@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "poppins",sans-serif;
+    border: border-box;
+    /* border box is important */
+}
+.main{
+    background-color: black;
+    min-height: 100vh; 
+    justify-content: center;
+    align-items: center;
+    place-content: center;
+}
+.main1{
+    border: 3px solid red;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: start;
+    background: linear-gradient(#3066d1,#7843cc);
+    padding: 20px;
+}
+.heading{
+    padding-left: 10px;
+    font-size: 20px;
+}
+.logo{
+    height: 50px;
+}
+.search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+}
+.flex{
+    flex: 1;
+}
+#searchbar{
+    width: 70%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 0;
+    background-color: beige;
+    outline: 0;
+}
+#searchbtn{
+    width: 20%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 0;
+    background-color: beige;
+    cursor: pointer;
+}
+.history-main select{
+    margin-left:10px;
+    border-radius: 20px;
+    padding: 10px;
+    border: 0;
+    background-color: beige;
+    outline: 0;
+}
+ul{
+    padding-top: 10px;
+}
+li{
+    text-align: start;
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 12px 12px 40px;
+    cursor: pointer;
+}
+
+.line{
+    text-decoration: line-through 3px;
+    opacity: 0.5;   
+}
+
+
+
+.firstlist{
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+    width: 100%;
+    background-color: bisque;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+    margin: 8px;
+}
+
+
+.todo{
+    flex: 1;
+}
+.checkin{
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    margin-right: 10px;
+}
+.checkout{
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    margin-right: 10px;
+}
+.fa-check{
+    pointer-events: none;
+}
+.fa-xmark{
+    pointer-events: none;
+}
+
+.checkin,.checkout{
+    cursor: pointer;
+}
+
+.hide{
+    display: none;
+}

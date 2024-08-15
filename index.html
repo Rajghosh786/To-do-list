@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="main1">
+            <div class="heading">
+                <h2 class="head">To-Do-List <img class="logo" src="to-do-list.png" alt="logo"></h2>
+            </div>
+            <div class="search">
+                <div class="flex">
+                    <input id="searchbar" type="text" placeholder="Add your list">
+                    <button id="searchbtn" type="button">Add
+                        <i  class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+                <div class="history-main">
+                    <select name="entry" class="entrylist">history
+                        <option class="all" value="all">All</option>
+                        <option class="completed" value="completed">Completed</option>
+                        <option class="pending" value="pending">Pending</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="unorderd">
+                <ul id="ullist">
+                    <!-- <div class="firstlist">
+                        <li class="todo">task1</li>
+                        <button class="checkin" type="button"><i class="fa-solid fa-check"></i></button>
+                        <button class="checkout" type="button"><i class="fa-solid fa-xmark"></i></button>
+                    </div> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://kit.fontawesome.com/56d5b0aa17.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
