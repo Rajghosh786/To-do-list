@@ -1,6 +1,6 @@
 const searchbtn = document.getElementById("searchbtn");
 const searchbar = document.getElementById("searchbar");
-const ull = document.getElementById("ullist");
+const ull = document.querySelector(".ullist");
 const checkout = document.querySelector(".checkout");
 const entrylist = document.querySelector(".entrylist");
 const unorderd = document.querySelector(".unorderd");
@@ -8,9 +8,17 @@ const all = document.querySelector(".all");
 const completed = document.querySelector(".completed");
 const pending = document.querySelector(".pending");
 const firstlist = document.querySelector(".firstlist")
+const history = document.querySelector(".historymain")
 
 searchbtn.addEventListener('click',append);
 searchbtn.addEventListener('click',clear);
+searchbar.addEventListener('keyup',function(keyboard){
+    if(keyboard.which === 13){
+        console.log(searchbar.value)
+        append()
+        searchbar.value = "";
+    }
+    })
 
 
     function clear(){
@@ -18,9 +26,6 @@ searchbtn.addEventListener('click',clear);
     }
     function append(event){
         if(searchbar.value.length > 0){
-            event.preventDefault();
-
-
             const creatediv = document.createElement('div');
                 creatediv.classList.add("firstlist"); 
             const createli = document.createElement('li');
@@ -36,51 +41,72 @@ searchbtn.addEventListener('click',clear);
                 createbutton2.classList.add("checkout");
                 creatediv.appendChild(createbutton2);
                 ull.appendChild(creatediv);
-                savedata()
+                // savedata()
         }
     }   
 
     ull.addEventListener('click',deleting)
     function deleting(e){
+        // console.log(e.target.parentElement)
         const item = e.target
         if(item.classList[0] === "checkout"){         
         const removeelement = item.parentElement;
         removeelement.remove();
-        savedata()
+        // savedata()
         };
         if(item.classList[0] === "checkin"){   
             const checkelement = item.parentElement;      
             checkelement.classList.toggle("line")
-            savedata()
+            // savedata()
         };
     }
+    entrylist.addEventListener('change',sorting)
+    entrylist.addEventListener('change',remaining)
+    entrylist.addEventListener('change',notRemaining)
 
-    entrylist.addEventListener('click',function(data){
-        console.log(data.target)
+    function sorting(data){
+        const todos = ull.childNodes
+        todos.forEach(el=>{
+            if(data.target.value === "all"){
+                console.log("all")
+                el.style.display="flex"
+            }
+        })
+    }
+
+    
+    function remaining(data){
+        const todos = ull.childNodes
+        todos.forEach(el=>{
+            if(data.target.value === "pending" && el.classList.contains('line')){
+                el.style.display="none"
+            }else{
+                el.style.display="flex"
+            }
+        })
+    }
+
+    function notRemaining(data){
         const todos = ull.childNodes
         console.log(todos)
-        todos.forEach(element => {
-            if(data.target.value === "pending" && element.classList.contains('line')){
-                console.log(element)
-                element.classList.toggle("none")
-            }
-            if(data.target.value === "completed" && !element.classList.contains('line')){
-                console.log(element)
-                element.classList.toggle("none")
-            }
-            savedata()
-        });
-    
-    })
+        console.log(data.target)
+        todos.forEach(el=>{
+            if(data.target.value === "completed" && !el.classList.contains('line')){
+                el.style.display="none"
+            }        
+        })
+    }
 
-    function savedata(){
-        localStorage.setItem("data",ull.innerHTML);
-    }
-    function showdata(){
-        ull.innerHTML = localStorage.getItem("data");
-    }
-    showdata();
+
+    // function savedata(){
+    //     localStorage.setItem("data",ull.innerHTML);
+    // }
+    // function showdata(){
+    //     ull.innerHTML = localStorage.getItem("data");
+    // }
+    // showdata();
     // function deletedata(){
     //     ull.innerHTML = localStorage.removeItem("data");
     // }
     // deletedata()
+
