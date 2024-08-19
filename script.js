@@ -12,8 +12,8 @@ const history = document.querySelector(".historymain")
 
 searchbtn.addEventListener('click',append);
 searchbtn.addEventListener('click',clear);
-searchbar.addEventListener('keyup',function(keyboard){
-    if(keyboard.which === 13){
+searchbar.addEventListener('keyup',function(event){
+    if(event.key === "Enter"){
         console.log(searchbar.value)
         append()
         searchbar.value = "";
