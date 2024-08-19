@@ -60,7 +60,7 @@ body{
     background-color: beige;
     cursor: pointer;
 }
-.history-main select{
+.historymain select{
     margin-left:10px;
     border-radius: 20px;
     padding: 10px;
