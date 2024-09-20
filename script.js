@@ -1,6 +1,7 @@
 const searchbtn = document.getElementById("searchbtn");
 const searchbar = document.getElementById("searchbar");
 const ull = document.querySelector(".ullist");
+// const checkin = document.querySelector(".checkin")
 const checkout = document.querySelector(".checkout");
 const entrylist = document.querySelector(".entrylist");
 const unorderd = document.querySelector(".unorderd");
@@ -9,6 +10,13 @@ const completed = document.querySelector(".completed");
 const pending = document.querySelector(".pending");
 const firstlist = document.querySelector(".firstlist")
 const history = document.querySelector(".historymain")
+// const optionss = document.getElementsByTagName('option')
+// let todo = document.querySelector(".todo")
+
+
+// checkin.addEventListener('click', function(){
+//     todo.classList.toggle("line")
+// })
 
 searchbtn.addEventListener('click',append);
 searchbtn.addEventListener('click',clear);
@@ -26,6 +34,9 @@ searchbar.addEventListener('keyup',function(event){
     }
     function append(event){
         if(searchbar.value.length > 0){
+            // event.preventDefault();
+            // event.preventDefault makes it not disappear in refresh
+
             const creatediv = document.createElement('div');
                 creatediv.classList.add("firstlist"); 
             const createli = document.createElement('li');
@@ -41,7 +52,7 @@ searchbar.addEventListener('keyup',function(event){
                 createbutton2.classList.add("checkout");
                 creatediv.appendChild(createbutton2);
                 ull.appendChild(creatediv);
-                // savedata()
+                savedata()
         }
     }   
 
@@ -52,12 +63,12 @@ searchbar.addEventListener('keyup',function(event){
         if(item.classList[0] === "checkout"){         
         const removeelement = item.parentElement;
         removeelement.remove();
-        // savedata()
+        savedata()
         };
         if(item.classList[0] === "checkin"){   
             const checkelement = item.parentElement;      
             checkelement.classList.toggle("line")
-            // savedata()
+            savedata()
         };
     }
     entrylist.addEventListener('change',sorting)
@@ -65,7 +76,9 @@ searchbar.addEventListener('keyup',function(event){
     entrylist.addEventListener('change',notRemaining)
 
     function sorting(data){
+        // console.log(data.target)
         const todos = ull.childNodes
+        // console.log(todos)
         todos.forEach(el=>{
             if(data.target.value === "all"){
                 console.log("all")
@@ -77,6 +90,7 @@ searchbar.addEventListener('keyup',function(event){
     
     function remaining(data){
         const todos = ull.childNodes
+        // console.log(todos)
         todos.forEach(el=>{
             if(data.target.value === "pending" && el.classList.contains('line')){
                 el.style.display="none"
@@ -98,13 +112,13 @@ searchbar.addEventListener('keyup',function(event){
     }
 
 
-    // function savedata(){
-    //     localStorage.setItem("data",ull.innerHTML);
-    // }
-    // function showdata(){
-    //     ull.innerHTML = localStorage.getItem("data");
-    // }
-    // showdata();
+    function savedata(){
+        localStorage.setItem("data",ull.innerHTML);
+    }
+    function showdata(){
+        ull.innerHTML = localStorage.getItem("data");
+    }
+    showdata();
     // function deletedata(){
     //     ull.innerHTML = localStorage.removeItem("data");
     // }
